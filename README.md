@@ -28,4 +28,4 @@ We learned that it's possible to develop an impactful piece of software in a sho
 
 
 ## Built With
-Javascript, [stdlib](https://stdlib.com/) , HTML
+[stdlib](https://stdlib.com/), jQuery Bootstrap, Javascript, and HTML
