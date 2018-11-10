@@ -13,20 +13,35 @@ $(document).ready(function(){
     });
 });
 
+var log = function(word, correct) {
+    if (correct) {
+        console.log(word, "correct");
+    } else {
+        console.log(word, "incorrect");
+    }
+}
+
+var replaceWord = function(word, translation, image) {
+    var markup = []
+    markup.push("<parsel ")
+
+    const size = 30;
+    var tooltipHTML = `<p>${translation}</p><img width='${size}' height='${size}' src='${image}' />`
+
+    // Feedback button
+    var buttonHTML = `<button id='${word}' onclick='log(this, true)'>Yes</button>`
+    tooltipHTML += buttonHTML
+
+    markup.push(`title="${tooltipHTML}"`)
+
+    markup.push(`>${translation}</parsel>`)
+
+    return markup.join('')
+}
+
+$("#parseltongue").replaceWith(replaceWord("University", "Université", "https://www.fillmurray.com/100/100"))
+
 $( "parsel" ).tooltip({
     trigger: "click",
     html: "true"
 });
-
-var replaceWord = function(word, translation, image) {
-    var markup = []
-    markup.append("<parsel ")
-
-    const size = 30;
-    var tooltipHTML = `<p>${translation}</p><img width='${size}' height='${size}' src='${image}' />`
-    markup.append(`title="${tooltipHTML}"`)
-
-    markup.append(`>${word}</parsel>`)
-
-    return markup.join('')
-}
