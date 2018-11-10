@@ -1,6 +1,7 @@
 from translate import Translator
 import nltk
 
+# Translates page of words as one big string into language of choice
 def translate_page(page_of_words, language):
     
     translator = Translator(to_lang=language)
@@ -14,8 +15,7 @@ def translate_page(page_of_words, language):
         
     return page_of_words
 
-
-
+# Translates array of words into language of choice
 def translate_array(list_english_words, language): 
     
     translated_list = []
@@ -28,7 +28,7 @@ def translate_array(list_english_words, language):
 
     return translated_list
 
-
+# Translates a comma split string of words into language of choice
 def translate_comma_split_string(english_words, language):
     
     split_words = english_words.split(",")
