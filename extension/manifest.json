@@ -1,0 +1,21 @@
+{
+    "name": "parseltongue",
+    "version": "1.0",
+    "description": "language lubricant",
+    "permissions": ["storage"],
+    "background": {
+	"scripts": ["background.js"],
+	"persistent": false
+    },
+    "manifest_version": 2,
+    "page_action": {
+	"default_popup": "dashboard.html",
+	"default_icon": {
+	    "16": "images/icon16.png",
+	    "32": "images/icon32.png",
+	    "48": "images/icon48.png",
+	    "128": "image/icon128.png",
+	}
+    }
+    
+}
