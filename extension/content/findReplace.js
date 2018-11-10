@@ -29,7 +29,7 @@ var postData = function(url, data) {
     .then(response => response.json()); // parses response to JSON
 }
 
-const url = "https://parseltongue.lib.id/parseltongue@dev"
+const url = "https://parseltongue.lib.id/parseltongue@dev/"
 fetch(url, {
   method: 'POST',
   body: JSON.stringify({
