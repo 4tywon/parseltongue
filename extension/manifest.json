@@ -4,7 +4,7 @@
     "description": "language lubricant",
     "permissions": ["storage"],
     "background": {
-	"scripts": ["background.js"],
+	"scripts": ["background/background.js"],
 	"persistent": false
     },
     "manifest_version": 2,
@@ -16,7 +16,7 @@
 	    "48": "images/icon48.png",
 	    "128": "image/icon128.png",
 	}
-    }
+    },
     "content_scripts": [
 	{
 	    "matches": ["*://*/*"],
