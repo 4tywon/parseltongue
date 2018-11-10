@@ -1,16 +1,31 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-	<meta charset="UTF-8">
-	<title>Parseltongue Test</title>
-	<link rel="stylesheet" href="jquery-ui-1.12.1/jquery-ui.css">
-	<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+  <title>Parseltongue Test</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-	Princeton <parsel id="University" title="We ask for your age only for statistical purposes.">University</tongue>
+<div class="container">
+  <h1>Tooltip Methods</h1>
+  Princeton <parsel id="University" title="<p>University</p><img width='30' height='30' src='https://www.fillmurray.com/100/100' />">Université</parsel>
+  <div>
+    <p>Click on the buttons to manually control the tooltip above:</p>
+    <button type="button" class="btn btn-primary">Show</button>
+    <button type="button" class="btn btn-warning">Hide</button>
+    <button type="button" class="btn btn-success">Toggle</button>
+    <button type="button" class="btn btn-danger">Destroy</button>
+  </div>
+</div>
 
-	<script src="main.js"></script>
+<parsel id="Other" title="<p>Help</p><img width='30' height='30' src='https://www.fillmurray.com/100/100' />">Other</parsel>
+
+<script src="main.js"></script>
+
 </body>
 </html>

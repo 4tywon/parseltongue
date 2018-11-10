@@ -1,0 +1,8 @@
+.container {
+    margin-top: 200px;
+}
+.tooltip-inner {
+    background: white;
+    padding: 2px;
+    border: 1px solid black;
+}
