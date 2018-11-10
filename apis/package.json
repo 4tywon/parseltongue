@@ -1,0 +1,14 @@
+{
+    "name": "google_translate",
+    "version": "0.0.1",
+    "description": "Comparison of Node.js template languages.",
+    "keywords": ["template", "benchmark"],
+    "repository": "https://github.com/paularmstrong/node-templates.git",
+    "homepage": "http://paularmstrong.github.com/node-templates/",
+    "author": "Paul Armstrong <paul@paularmstrongdesigns.com>",
+    "dependencies": {
+        "translate": ">=3.5.0",
+        "nltk": ">=3.3",
+    },
+    "main": "index",
+}
