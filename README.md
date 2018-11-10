@@ -17,7 +17,7 @@ We started out by sketching a mockup of our Chrome extension. Next, we decided o
 ## Challenges
 We faced many challenges in building this product, the first of which was the brainstorming process. It took a few hours to brainstorm and come up with our final project idea. Our next notable task was deciding on which technologies we would implement to develop our solution. 
 
-After deciding on our various technologies, we encountered a handful of issues connecting these various systems together. Our stack covered a wide variety of programming languages, systems, and designs including Google Chrome, Javascript, [stdlib] (https://stdlib.com/), and jQuery Bootstrap. Getting the puzzle pieces to fit together was a challenging, yet very rewarding problem to solve.
+After deciding on our various technologies, we encountered a handful of issues connecting these various systems together. Our stack covered a wide variety of programming languages, systems, and designs including Google Chrome, Javascript, [stdlib](https://stdlib.com/), and jQuery Bootstrap. Getting the puzzle pieces to fit together was a challenging, yet very rewarding problem to solve.
 
 ## Accomplishments That We're Proud Of
 We're proud of developing a Chrome extension that enables a user to intuitively learn a language. Our extension seamlessly integrates with Google Chrome and teaches the user the language of their choice. Ideally, we hope that this tool will enable people to communicate with others of different countries, cultures, and backgrounds. We envision a future where people don't view learning a new language and traveling as such a significant barrier to overcome. We hope that through the use of our extension, people can travel the world and experience it from a new perspective.
