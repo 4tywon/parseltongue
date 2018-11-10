@@ -1,16 +1,9 @@
 from translate import Translator
 import nltk
 
-translator = Translator(to_lang="fr")
-translation = translator.translate("This is a pen.")
-
-lines = 'lines is some string of words'
-is_noun = lambda pos: pos[:2] == 'NN'
-tokenized = nltk.word_tokenize(lines)
-nouns = [word for (word, pos) in nltk.pos_tag(tokenized) if is_noun(pos)] 
-
-def page_to_french(page_of_words):
+def translate_page(page_of_words, language):
     
+    translator = Translator(to_lang=language)
     is_noun = lambda pos: pos[:2] == 'NN'
     tokenized = nltk.word_tokenize(page_of_words)
     nouns = [word for (word, pos) in nltk.pos_tag(tokenized) if is_noun(pos)] 
@@ -21,19 +14,36 @@ def page_to_french(page_of_words):
         
     return page_of_words
 
-def to_french(french_words):
+
+
+def translate_array(list_english_words, language): 
     
-    split_words = french_words.split(",")
+    translated_list = []
+    translator = Translator(to_lang=language)
+
+
+    for i in list_english_words:
+        translation = translator.translate(i)
+        translated_list.append(translation)
+
+    return translated_list
+
+
+def translate_comma_split_string(english_words, language):
+    
+    split_words = english_words.split(",")
+    translated_words = english_words
+
+    translator = Translator(to_lang=language)
+
     
     is_noun = lambda pos: pos[:2] == 'NN'
-    tokenized = nltk.word_tokenize(french_words)
+    tokenized = nltk.word_tokenize(translated_words)
     nouns = [word for (word, pos) in nltk.pos_tag(tokenized) if is_noun(pos)] 
     
     for i in nouns: 
         translation = translator.translate(i)
-        french_words = french_words.replace(i, translator.translate(i))
+        translated_words = translated_words.replace(i, translator.translate(i))
         
-    return french_words
+    return translated_words
 
-
-# take list of words get nouns, translate by separating with commas, update information
