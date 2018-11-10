@@ -11,6 +11,7 @@ With *parseltongue*, a user no longer needs to devote time to learning a new lan
 *parseltongue* is a Google Chrome extension that translates a percentage of a web page's words into the language that a user is trying to learn. As a user begins to learn and develop their vocabulary, a greater number of the words on a web page are translated. A user can then click on the words that are translated and check that they've either learned the word in the context or they still don't know what the word means. By clicking on the translated word, the English definition is displayed along with the user feedback check. Through the parseltongue dashboard, a user can view their progress over time and see how their comprehension percentage has increased. 
 
 ## How We Built It
+We started out by sketching a mockup of our Chrome extension. Next, we decided on which technologies to implement to develop our solution and distributed technology workload amongst the members of our group based on our various skills and competencies. 
 
 
 ## Challenges
