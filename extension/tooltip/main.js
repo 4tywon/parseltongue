@@ -21,12 +21,12 @@ var log = function(word, correct) {
     }
 }
 
-var replaceWord = function(word, translation, image) {
+var replaceWord = function(word, translation) {
     var markup = []
     markup.push("<parsel ")
 
     const size = 30;
-    var tooltipHTML = `<p>${translation}</p><img width='${size}' height='${size}' src='${image}' />`
+    var tooltipHTML = `<p>${translation}</p>`
 
     // Feedback button
     var buttonHTML = `<button id='${word}' onclick='log(this, true)'>Yes</button>`
@@ -39,7 +39,7 @@ var replaceWord = function(word, translation, image) {
     return markup.join('')
 }
 
-$("#parseltongue").replaceWith(replaceWord("University", "Université", "https://www.fillmurray.com/100/100"))
+$("#parseltongue").replaceWith(replaceWord("University", "Université"))
 
 $( "parsel" ).tooltip({
     trigger: "click",
