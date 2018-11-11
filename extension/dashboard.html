@@ -1,0 +1,153 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js"></script>
+    <script>
+        WebFont.load({
+            google: {
+                families: ['Droid Sans', 'Droid Serif', "Proxima Nova", "Montserrat"]
+            }
+        });
+    </script>
+
+    <script type="text/javascript">
+        window.onload = function () {
+
+            var now = new Date();
+            var today = new Date(now.getFullYear(), now.getMonth() + 1, now.getDate());
+
+            var up_votes = [10, 15, 20, 5, 30, 40, 20, 25, 35, 55, 65];
+            var down_votes = [40, 30, 35, 10, 15, 20, 5, 5, 10, 8, 7];
+
+            var percentage_comprehensions = up_votes.map(function (n, i) {
+                return ((n / (up_votes[i] + down_votes[i])).toFixed(4) * 100);
+            });
+
+            var dates_used = [
+                new Date(2018, 9, 1), new Date(2018, 9, 3), new Date(2018, 9, 5),
+                new Date(2018, 9, 7), new Date(2018, 9, 11), new Date(2018, 9, 13),
+                new Date(2018, 9, 20), new Date(2018, 9, 21), new Date(2018, 9, 23),
+                new Date(2018, 9, 25), new Date(2018, 9, 27), today
+            ];
+
+            var chart = new CanvasJS.Chart("chartContainer",
+                {
+                    title: {
+                        fontFamily: "Montserrat",
+                        text: "Comprehension-Time Chart"
+                    },
+                    axisX: {
+                        title: "Timeline",
+                        titleFontFamily: "Montserrat",
+                        gridThickness: 2
+                    },
+                    axisY: {
+                        title: "% Comprehension",
+                        titleFontFamily: "Montserrat",
+                        maximum: 100
+                    },
+                    data: [
+                        {
+                            type: "area",
+                            dataPoints: [
+                                {x: dates_used[0], y: percentage_comprehensions[0]},
+                                {x: dates_used[1], y: percentage_comprehensions[1]},
+                                {x: dates_used[2], y: percentage_comprehensions[2]},
+                                {x: dates_used[3], y: percentage_comprehensions[3]},
+                                {x: dates_used[4], y: percentage_comprehensions[4]},
+                                {x: dates_used[5], y: percentage_comprehensions[5]},
+                                {x: dates_used[6], y: percentage_comprehensions[6]},
+                                {x: dates_used[7], y: percentage_comprehensions[7]},
+                                {x: dates_used[8], y: percentage_comprehensions[8]},
+                                {x: dates_used[9], y: percentage_comprehensions[9]},
+                                {x: dates_used[10], y: percentage_comprehensions[10]}
+                            ]
+                        }
+                    ]
+                });
+
+
+            chart.render();
+        }
+    </script>
+    <script type="text/javascript" src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+    <style>
+        table, th, td {
+            border: 1px solid black;
+            border-collapse: collapse;
+        }
+
+        th, td {
+            padding: 5px;
+            text-align: left;
+        }
+    </style>
+</head>
+
+<body>
+<font size="3" face="Montserrat">
+    <table style="width: 50%" align="center">
+        <tr>
+            <th>English Word:</th>
+            <th>Translated Word:</th>
+            <th>Number of Errors:</th>
+        </tr>
+        <tr>
+            <td>apple</td>
+            <td>pomme</td>
+            <td>51</td>
+        </tr>
+        <tr>
+            <td>plate</td>
+            <td>assiette</td>
+            <td>47</td>
+        </tr>
+        <tr>
+            <td>computer</td>
+            <td>ordinateur</td>
+            <td>43</td>
+        </tr>
+        <tr>
+            <td>phone</td>
+            <td>t&eacute;l&eacute;phone</td>
+            <td>32</td>
+        </tr>
+        <tr>
+            <td>fork</td>
+            <td>fourchette</td>
+            <td>21</td>
+        </tr>
+        <tr>
+            <td>journal</td>
+            <td>journal</td>
+            <td>17</td>
+        </tr>
+        <tr>
+            <td>glasses</td>
+            <td>lunettes</td>
+            <td>13</td>
+        </tr>
+        <tr>
+            <td>paper</td>
+            <td>papier</td>
+            <td>11</td>
+        </tr>
+        <tr>
+            <td>airplane</td>
+            <td>avion</td>
+            <td>9</td>
+        </tr>
+        <tr>
+            <td>water</td>
+            <td>eau</td>
+            <td>7</td>
+        </tr>
+    </table>
+</font>
+
+<div id="chartContainer" style="height: 300px; width: 100%;">
+</div>
+</body>
+</html>
+
+<!DOCTYPE html>
