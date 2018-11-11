@@ -1,4 +1,4 @@
-<img src="https://github.com/4tywon/parseltongue/blob/master/assets/logo.png?raw=true" />
+<img src="https://github.com/4tywon/parseltongue/blob/master/assets/logo.png?raw=true" width="200" />
 
 ## Introduction
 *parseltongue* is a Google Chrome extension that enables users to learn the language of their choice with minimal effort, while interacting with the Internet as they normally would. 
