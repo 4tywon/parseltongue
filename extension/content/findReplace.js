@@ -55,8 +55,8 @@ var replaceWord = function(word, translation, image) {
     var tooltipHTML = `<p>${word}</p>`
 
     // Feedback button
-    tooltipHTML += `<button id='${word}' onclick='log(this, true)'>√</button>`
-    tooltipHTML += `<button id='${word}' onclick='log(this, false)'>x</button>`
+    tooltipHTML += `<button id='${word}'>√</button>`
+    tooltipHTML += `<button id='${word}'>x</button>`
 
     markup.push(`title="${tooltipHTML}"`)
 
