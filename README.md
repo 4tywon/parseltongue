@@ -24,7 +24,7 @@ After deciding on our various technologies, we encountered a handful of issues c
 We're proud of developing a Chrome extension that enables a user to intuitively learn a language. Our extension seamlessly integrates with Google Chrome and teaches the user the language of their choice. Ideally, we hope that this tool will enable people to communicate with others of different countries, cultures, and backgrounds. We envision a future where people don't view learning a new language and traveling as such a significant barrier to overcome. We hope that through the use of our extension, people can travel the world and experience it from a new perspective.
 
 ## What We Learned
-We learned that it's possible to develop an impactful piece of software in a short period of time. We also learned how to utilize [stdlib](https://stdlib.com/) to simplify our development process. 
+As we had some new hackers on our team, we learned that it's possible to develop an impactful piece of software in a short period of time. We also learned how to utilize [stdlib](https://stdlib.com/) to simplify our development process. 
 
 ## What's Next for parseltongue
 
