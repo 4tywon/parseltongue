@@ -20,7 +20,7 @@
     },
     "content_scripts": [
 	{
-	    "matches": ["*://*/*"],
+	    "matches": ["*://en.wikipedia.org/*"],
 	    "js": ["packages/jquery.min.js", "packages/bootstrap.min.js", "content/findReplace.js"],
         "css": ["packages/bootstrap.min.css", "content/style.css"],
 	    "run_at": "document_end"

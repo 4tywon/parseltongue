@@ -1,47 +1,42 @@
 console.log("Running find and replace.");
 
-const allText = $('body').text();
+const n = 10000
+const allText = $('body').text().substring(0, n);
 
-translations = {
+var translations = {
     "terminal": {
         "word": "terminal",
-        "translation": "终奌站",
-        "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/78/Appleterminal2.png/300px-Appleterminal2.png"
+        "translation": "终奌站"
     }
 }
 
-// Send the text to the endpoint to get list of words to translate
-var postData = function(url, data) {
-  // Default options are marked with *
-    return fetch(url, {
-        method: "POST", // *GET, POST, PUT, DELETE, etc.
-        mode: "cors", // no-cors, cors, *same-origin
-        cache: "no-cache", // *default, no-cache, reload, force-cache, only-if-cached
-        credentials: "same-origin", // include, *same-origin, omit
-        headers: {
-            "Content-Type": "application/json; charset=utf-8",
-            // "Content-Type": "application/x-www-form-urlencoded",
-        },
-        redirect: "follow", // manual, *follow, error
-        referrer: "no-referrer", // no-referrer, *client
-        body: JSON.stringify(data), // body data type must match "Content-Type" header
-    })
-    .then(response => response.json()); // parses response to JSON
-}
-
 const url = "https://parseltongue.lib.id/parseltongue@dev/"
-fetch(url, {
-  method: 'POST',
-  body: JSON.stringify({
-      text: allText,
-      language: "fr",
-      p: 0.1
-  })
-})
-.then(response => response.json())
-.catch(error => console.error('Error:', error))
-.then(response => console.log('Success:', JSON.stringify(response)));
+const data = {
+    "text": allText,
+    "language": "fr",
+    "p": 0.30
+}
+$.post(url, data,
+    function(data, status) {
+        console.log(data);
+        for (var i = 0; i < Object.keys(data).length; i++) {
+            const word = Object.keys(data)[i];
 
+            if (data[word].indexOf(word) != -1) {
+                // console.log("Skipping", word, data[word])
+                continue;
+            } else {
+                translations[word] = {
+                    "word": word,
+                    "translation": data[word]
+                }
+            }
+        }
+
+        console.log("Replacing words:");
+        console.log(translations);
+        replaceWords(translations);
+    });
 
 // Tooltip Logic
 var log = function(word, correct) {
@@ -54,18 +49,18 @@ var log = function(word, correct) {
 
 var replaceWord = function(word, translation, image) {
     var markup = []
-    markup.push("<parsel ")
+    markup.push("<parsel style='color:red'")
 
     const size = 30;
-    var tooltipHTML = `<p>${translation}</p><img width='${size}' height='${size}' src='${image}' />`
+    var tooltipHTML = `<p>${word}</p>`
 
     // Feedback button
-    var buttonHTML = `<button id='${word}' onclick='log(this, true)'>Yes</button>`
-    tooltipHTML += buttonHTML
+    tooltipHTML += `<button id='${word}' onclick='log(this, true)'>√</button>`
+    tooltipHTML += `<button id='${word}' onclick='log(this, false)'>x</button>`
 
     markup.push(`title="${tooltipHTML}"`)
 
-    markup.push(`>${translation}</parsel>`)
+    markup.push(`> ${translation} </parsel>`)
 
     return markup.join('')
 }
@@ -76,6 +71,7 @@ var replaceWords = function(translations) {
 
     for (var k = 0; k < Object.keys(translations).length; k++) {
         const translation = translations[Object.keys(translations)[k]]
+        console.log(`Completed: ${k}/${Object.keys(translations).length}`);
 
         for (var i = 0; i < elements.length; i++) {
             var element = elements[i];
@@ -87,13 +83,13 @@ var replaceWords = function(translations) {
                 if (node.nodeType === 3) {
                     var text = node.nodeValue;
 
-                    if (text.indexOf(translation.word) != -1) { // If contains
+                    if (text.indexOf(` ${translation.word} `) != -1) { // If contains
                         console.log(`Found ${translation.word} in ${text}`);
-                        const replacedText = text.replace(new RegExp(translation.word, 'gi'), replaceWord(translation.word, translation.translation, translation.image));
+
+                        const replacedText = text.replace(new RegExp(` ${translation.word} `, 'gi'), replaceWord(translation.word, translation.translation, translation.image));
                         var newNode = document.createElement("SPAN");
                         newNode.innerHTML = replacedText;
 
-                        console.log(newNode);
                         element.replaceChild(newNode, node);
                         // node.innerHTML = replacedText
                     }
@@ -101,6 +97,8 @@ var replaceWords = function(translations) {
             }
         }
     }
+
+    console.log("Complete");
 
     $( "parsel" ).tooltip({
         trigger: "click",
